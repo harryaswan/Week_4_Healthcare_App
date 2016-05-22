@@ -1,0 +1,7 @@
+<ul>
+<% @employees.each do |employee| %> 
+  <li>
+    <a href="/employees/<%= employee.id %>"><%= employee.name %></a> by <%= employee.name %>
+  </li>
+<% end %>
+</ul>

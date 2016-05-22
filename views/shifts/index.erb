@@ -1,0 +1,7 @@
+<ul>
+<% @shifts.each do |shift| %> 
+  <li>
+    <a href="/shifts/<%= shift.id %>"><%= shift.id %></a> by <%= shift.id %>
+  </li>
+<% end %>
+</ul>

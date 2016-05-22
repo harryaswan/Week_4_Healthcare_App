@@ -1,5 +1,5 @@
 get '/employees' do
   #INDEX
-  @artists = Employee.all()
+  @employees = Employee.all()
   erb ( :'employees/index' )
 end

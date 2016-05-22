@@ -17,43 +17,18 @@ class Employee
     return result
   end
 
+  def self.all()
+    sql = "SELECT * FROM employees"
+    employees = SqlRunner.run( sql )
+    result = employees.map { |s| Employee.new( s ) }
+    return result
+  end
+
   def self.delete_all()
     sql = "DELETE FROM employees"
     SqlRunner.run(sql)
   end
 
-#   def artist()
-#     sql = "SELECT * FROM artists WHERE id = #{ @artist_id }"
-#     artist = SqlRunner.run( sql )
-#     result = Artist.new( artist.first )
-#     return result
-#   end
 
-#   def self.destroy(id)
-#     sql = "DELETE FROM albums WHERE id=#{id}"
-#     SqlRunner.run( sql )
-#   end
-
-#   def self.all()
-#     sql = "SELECT * FROM albums"
-#     albums = SqlRunner.run( sql )
-#     result = albums.map { |s| Album.new( s ) }
-#     return result
-#   end
-
-#   def self.find( id )
-#     albums = SqlRunner.run( "SELECT * FROM albums WHERE id=#{id}" ) 
-#     result = Album.new( albums.first )
-#     return result
-#   end
-
-#   def self.update( options )
-#       SqlRunner.run(  
-#         "UPDATE albums SET 
-#           name='#{options['name']}',
-#           artist_id=#{options['artist_id']}
-#           WHERE id=#{options['id']}"
-#       ) 
-#   end
 
 end

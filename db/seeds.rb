@@ -13,9 +13,9 @@ employee3 = Employee.new({ 'name' => 'Sarah Jones'})
 employee4 = Employee.new({ 'name' => 'Penny Lane'})
 
 e1 = employee1.save
-e2 = employee1.save
-e3 = employee1.save
-e4 = employee1.save
+e2 = employee2.save
+e3 = employee3.save
+e4 = employee4.save
 
 
 client1 = Client.new({ 'name' => 'Mr Maxwell', 'address' => '21 Glasgow Rd', 'requirements' => 'Tea and tuck'})
