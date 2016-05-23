@@ -1,17 +1,21 @@
 require( 'pg' )
+require( 'pry-byebug')
 require_relative('../db/sql_runner')
 
 class Employee
 
-  attr_reader( :id, :name )
+  attr_accessor( :id, :name, :bio, :image, :start_date )
 
   def initialize( options )
-    @id = options['id'].to_i
+    @id = nil || options['id'].to_i
     @name = options['name']
+    @bio = options['bio']
+    @image = options['image']
+    @start_date = options['start_date']
   end
 
   def save()
-    sql = "INSERT INTO employees (name) VALUES ('#{ @name }') RETURNING *"
+    sql = "INSERT INTO employees (name, bio, image, start_date) VALUES ('#{ @name }', '#{ @bio }', '#{ @image }', '#{ @start_date }') RETURNING *"
     data = SqlRunner.run( sql ).first
     result = Employee.new( data )
     return result
@@ -28,6 +32,25 @@ class Employee
     sql = "DELETE FROM employees"
     SqlRunner.run(sql)
   end
+
+  def self.find( id )
+    employees = SqlRunner.run( "SELECT * FROM employees WHERE id=#{id}" ) 
+    result = Employee.new( employees.first )
+    return result
+  end
+
+  def self.update( options )
+      SqlRunner.run(  
+        "UPDATE employees SET 
+        name = '#{options['name']}',
+        bio = '#{options['bio']}',
+        image = '#{options['image']}',
+        start_date = '#{options['start_date']}'
+        WHERE id = #{options['id']}"
+      ) 
+  end
+
+
 
 
 

@@ -4,12 +4,16 @@ DROP TABLE shifts;
 
 CREATE TABLE employees (
   id serial4 primary key,
-  name VARCHAR(255)
+  name VARCHAR(255),
+  bio VARCHAR(255),
+  image VARCHAR(255),
+  start_date DATE
 );
 
 CREATE TABLE clients (
   id serial4 primary key,
   name VARCHAR(255),
+  image VARCHAR(255),
   address VARCHAR(255),
   requirements VARCHAR(255)
   -- artist_id int4 references artists(id) on delete cascade
