@@ -16,7 +16,7 @@ post '/employees' do
   #CREATE
  @employee = Employee.new( params )
  @employee.save()
- redirect to(:'employees/create')
+ redirect to(:'employees')
 end
 
 get '/employees/:id' do
