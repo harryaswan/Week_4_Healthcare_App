@@ -49,11 +49,6 @@ class Client
     return result
   end
 
-  def employee()
-    sql = "SELECT * FROM employees WHERE id = #{ @client_id }"
-    employee = SqlRunner.run( sql )
-    result = Employee.new( employee.first )
-    return result
-  end
+
 
 end

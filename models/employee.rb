@@ -51,6 +51,14 @@ class Employee
   end
 
 
+  def employee_shifts()
+    sql = "SELECT * FROM shifts WHERE id = #{ @id }"
+    employee = SqlRunner.run( sql )
+    result = Employee.new( employee.first )
+    return result
+  end
+
+
 
 
 

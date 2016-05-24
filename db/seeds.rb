@@ -35,10 +35,27 @@ employee4 = Employee.new({
   'start_date' => '2014-03-24'
   })
 
+employee5 = Employee.new({ 
+  'name' => 'Alex Murphy', 
+  'bio' => 'Half man, half machine, all carer', 
+  'image' => 'http://images.fandango.com/images/fandangoblog/robocop813-final.jpg', 
+  'start_date' => '2014-03-24'
+  })
+
+employee6 = Employee.new({ 
+  'name' => 'Marion Cobreti', 
+  'bio' => 'Cop. Chews toothpicks. Asks questions later. Almost certainly a Republican', 
+  'image' => 'http://www.monologuedb.com/wp-content/uploads/2011/03/sylvester-stallone-Marion-Cobretti-cobra.jpg', 
+  'start_date' => '2014-03-24'
+  })
+
+
 e1 = employee1.save
 e2 = employee2.save
 e3 = employee3.save
 e4 = employee4.save
+e5 = employee5.save
+e6 = employee6.save
 
 
 client1 = Client.new({ 
@@ -77,10 +94,10 @@ c3 = client3.save
 c4 = client4.save
 
 
-shift1 = Shift.new( {'employee_id' => e1.id, 'client_id' => c1.id, 'shift_report' => 'report'}) .save()
-shift2 = Shift.new( {'employee_id' => e2.id, 'client_id' => c2.id, 'shift_report' => 'report'}) .save()
-shift3 = Shift.new( {'employee_id' => e3.id, 'client_id' => c3.id, 'shift_report' => 'report'}) .save()
-shift4 = Shift.new( {'employee_id' => e4.id, 'client_id' => c4.id, 'shift_report' => 'report'}) .save()
+shift1 = Shift.new( {'employee_id' => e1.id, 'client_id' => c1.id, 'shift_report' => 'report', 'shift_date' => '2016-05-26', 'shift_time' => '18:00' }) .save()
+shift2 = Shift.new( {'employee_id' => e2.id, 'client_id' => c2.id, 'shift_report' => 'report', 'shift_date' => '2016-05-26', 'shift_time' => '09:00'}) .save()
+shift3 = Shift.new( {'employee_id' => e3.id, 'client_id' => c3.id, 'shift_report' => 'report', 'shift_date' => '2016-05-26', 'shift_time' => '12:00'}) .save()
+shift4 = Shift.new( {'employee_id' => e4.id, 'client_id' => c4.id, 'shift_report' => 'report', 'shift_date' => '2016-05-26', 'shift_time' => '15:00'}) .save()
 
 
 

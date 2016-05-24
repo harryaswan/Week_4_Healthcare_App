@@ -1,12 +1,22 @@
 require_relative('../models/client')
 
-
+get '/clients/new' do
+  #NEW
+  erb( :'/clients/new' )
+end
 
 
 get '/clients' do
   #INDEX
   @clients = Client.all()
   erb ( :'clients/index' )
+end
+
+post '/clients' do
+  #CREATE
+ @client = Client.new( params )
+ @client.save()
+ redirect to(:'clients')
 end
 
 get '/clients/:id' do

@@ -2,6 +2,12 @@
 <% @shifts.each do |shift| %> 
   <li>
     <a href="/shifts/<%= shift.id %>"><%= shift.id %></a>
+    <p>Employee:</p>
+    <%=shift.employee.name %><br>
+    <p>Client:</p>
+    <%=shift.client.name %><br>
+    <p>Shift Date:</p>
+    <%=shift.shift_date %><br>
   </li>
 <% end %>
 </ul>
