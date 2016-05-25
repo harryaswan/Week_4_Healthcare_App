@@ -1,6 +1,7 @@
+DROP TABLE shifts;
 DROP TABLE employees;
 DROP TABLE clients;
-DROP TABLE shifts;
+
 
 CREATE TABLE employees (
   id serial4 primary key,
@@ -25,5 +26,6 @@ employee_id int4 references employees(id) on delete cascade,
 client_id int4 references clients(id) on delete cascade,
 shift_report VARCHAR(255),
 shift_date DATE,
-shift_time TIME
+shift_time TIME,
+shift_status VARCHAR(255)
 );

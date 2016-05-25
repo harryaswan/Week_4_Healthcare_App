@@ -3,7 +3,7 @@ require_relative('../db/sql_runner')
 
 class Shift
 
-  attr_reader( :id, :employee_id, :client_id, :shift_report, :shift_date, :shift_time )
+  attr_reader( :id, :employee_id, :client_id, :shift_report, :shift_date, :shift_time, :shift_status )
 
   def initialize( options )
     @id = options['id'].to_i
@@ -12,6 +12,7 @@ class Shift
     @shift_report = options['shift_report']
     @shift_date = options['shift_date']
     @shift_time = options['shift_time']
+    @shift_status = options['shift_status']
   end
 
   def save()
@@ -20,13 +21,16 @@ class Shift
     client_id, 
     shift_report, 
     shift_date, 
-    shift_time
+    shift_time,
+    shift_status
     ) VALUES (
+    '#{@status}'
     '#{@employee_id}', 
     '#{@client_id}', 
     '#{@shift_report}', 
     '#{ @shift_date }', 
-    '#{ @shift_time }' 
+    '#{ @shift_time }',
+    '#{ @shift_status }' 
     ) RETURNING *"
     data = SqlRunner.run(sql).first
     result = Shift.new( data )
@@ -47,7 +51,8 @@ class Shift
     client_id ='#{options['client_id']}',
     shift_report = '#{options['shift_report']}',
     shift_date = '#{options['shift_date']}',
-    shift_time = '#{options['shift_time']}'
+    shift_time = '#{options['shift_time']}',
+    shift_status = '#{options['shift_status']}'
     WHERE id=#{options['id']}"
     ) 
   end
@@ -78,8 +83,29 @@ class Shift
     result = Employee.new( client.first )
     return result
   end
+  
+
+  def self.available
+    av_shifts = Array.new
+    sql = "SELECT * FROM shifts"
+    shifts = SqlRunner.run( sql )
+    for shift in shifts
+      
+      if shift['shift_status'] == 'available'
+        av_shifts << Shift.new(shift)
+      end
+    end
+    return av_shifts
+ end
 
 
+
+  def self.all()
+    sql = "SELECT * FROM shifts"
+    shifts = SqlRunner.run( sql )
+    result = shifts.map { |s| Shift.new( s ) }
+    return result
+  end
 
 
 end

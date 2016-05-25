@@ -8,6 +8,29 @@
     <%=shift.client.name %><br>
     <p>Shift Date:</p>
     <%=shift.shift_date %><br>
+    <p>Shift Time:</p>
+    <%=shift.shift_time%>
+    <p>Status:</p>
+    <%=shift.shift_status%>
+  </li>
+<% end %>
+</ul>
+
+
+<h2>Available Shifts</h2>
+
+<ul>
+<% Shift.available.each do |shift| %> 
+  <li>
+    <a href="/shifts/<%= shift.id %>"><%= shift.id %></a>
+    <p>Client:</p>
+    <%=shift.client.name %><br>
+    <p>Shift Date:</p>
+    <%=shift.shift_date%><br>
+    <p>Shift Time:</p>
+    <%=shift.shift_time%>
+    <p>Status:</p>
+    <%=shift.shift_status%>
   </li>
 <% end %>
 </ul>

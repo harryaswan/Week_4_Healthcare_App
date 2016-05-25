@@ -16,7 +16,7 @@ class TestShift < MiniTest::Test
 
 
   def test_staff_id
-    assert_equal( 1, @shift.staff_id())
+    assert_equal( 1, @shift.employee_id())
   end
 
 
@@ -27,6 +27,8 @@ class TestShift < MiniTest::Test
   def test_shift_report
     assert_equal( "Client was a little sleepy so made food to eat later", @shift.shift_report())
   end
+
+
 
 
 

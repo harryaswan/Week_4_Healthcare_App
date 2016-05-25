@@ -1,6 +1,7 @@
 require( 'pg' )
 require( 'pry-byebug')
 require_relative('../db/sql_runner')
+require_relative( 'shift' )
 
 class Employee
 
@@ -50,15 +51,14 @@ class Employee
       ) 
   end
 
-
-  def employee_shifts()
-    sql = "SELECT * FROM shifts WHERE id = #{ @id }"
-    employee = SqlRunner.run( sql )
-    result = Employee.new( employee.first )
-    return result
+def employee_shifts()
+  shifts = Shift.all
+  total = 0
+  shifts.each do |shift|
+    total += 1 if shift.employee_id == @id
   end
-
-
+  return total
+end
 
 
 
