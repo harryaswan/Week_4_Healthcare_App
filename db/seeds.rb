@@ -94,11 +94,16 @@ c3 = client3.save
 c4 = client4.save
 
 
-shift1 = Shift.new( {'employee_id' => e1.id, 'client_id' => c1.id, 'shift_report' => 'report', 'shift_date' => '2016-05-26', 'shift_time' => '18:00', 'shift_status' => 'test' }).save()
+shift1 = Shift.new( {'employee_id' => e1.id, 'client_id' => c1.id, 'shift_report' => 'report', 'shift_date' => '2016-05-26', 'shift_time' => '18:00', 'shift_status' => 'taken' }).save()
+
 shift2 = Shift.new( {'employee_id' => e2.id, 'client_id' => c2.id, 'shift_report' => 'report', 'shift_date' => '2016-05-26', 'shift_time' => '09:00', 'shift_status' => 'taken'}) .save()
+
 shift3 = Shift.new( {'employee_id' => e3.id, 'client_id' => c3.id, 'shift_report' => 'report', 'shift_date' => '2016-05-26', 'shift_time' => '12:00', 'shift_status' => 'taken'}) .save()
+
 shift4 = Shift.new( {'employee_id' => e4.id, 'client_id' => c4.id, 'shift_report' => 'report', 'shift_date' => '2016-05-26', 'shift_time' => '15:00', 'shift_status' => 'taken'}) .save()
+
 shift5 = Shift.new( {'employee_id' => e4.id, 'client_id' => c4.id, 'shift_report' => 'report', 'shift_date' => '2016-05-27', 'shift_time' => '15:00', 'shift_status' => 'available'}) .save()
+
 shift6 = Shift.new( {'employee_id' => e4.id, 'client_id' => c4.id, 'shift_report' => 'report', 'shift_date' => '2016-05-28', 'shift_time' => '15:00', 'shift_status' => 'available'}) .save()
 
 shift7 = Shift.new( {'employee_id' => e1.id, 'client_id' => c4.id, 'shift_report' => 'report', 'shift_date' => '2016-05-30', 'shift_time' => '09:00', 'shift_status' => 'available'}) .save()

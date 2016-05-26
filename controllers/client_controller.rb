@@ -38,3 +38,10 @@ put '/clients/:id' do
  @client = Client.update( params )
  redirect to( "/clients/#{params[:id]}" )
 end
+
+
+delete '/clients/:id' do
+  #DELETE
+  Client.destroy( params[:id] )
+  redirect to('/clients')
+end

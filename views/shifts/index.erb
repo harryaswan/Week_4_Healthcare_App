@@ -1,36 +1,35 @@
+<h2><u>Staffed Shifts</u></h2>
+
 <ul>
 <% @shifts.each do |shift| %> 
   <li>
-    <a href="/shifts/<%= shift.id %>"><%= shift.id %></a>
-    <p>Employee:</p>
-    <%=shift.employee.name %><br>
-    <p>Client:</p>
-    <%=shift.client.name %><br>
-    <p>Shift Date:</p>
-    <%=shift.shift_date %><br>
-    <p>Shift Time:</p>
+    <a class="non-available-link" href="/shifts/<%= shift.id %>"><%= shift.id %></a>
+    <p style="color:green;"><u>Employee:</u></p>
+    <%=shift.employee.name %>
+    <p style="color:green;"><u>Client:</u></p>
+    <%=shift.client.name %>
+    <p style="color:green;"><u>Shift Date:</u></p>
+    <%=shift.shift_date %>
+    <p style="color:green;"><u>Shift Time:</u></p>
     <%=shift.shift_time%>
-    <p>Status:</p>
+    <p style="color:green;"><u>Status:</u></p>
     <%=shift.shift_status%>
   </li>
 <% end %>
 </ul>
 
 
-<h2>Available Shifts</h2>
+<h2><u>Available Shifts</u></h2>
+<p>Please click on the shift ID number to volunteer</p>
 
 <ul>
 <% Shift.available.each do |shift| %> 
   <li>
-    <a href="/shifts/<%= shift.id %>"><%= shift.id %></a>
-    <p>Client:</p>
-    <%=shift.client.name %><br>
-    <p>Shift Date:</p>
-    <%=shift.shift_date%><br>
-    <p>Shift Time:</p>
-    <%=shift.shift_time%>
-    <p>Status:</p>
-    <%=shift.shift_status%>
+    <a class="available-link" href ="/shifts/<%= shift.id %>"><%= shift.id %></a>
+    <p style="color:black;"><u>Client:</u></p><%=shift.client.name %>
+    <p><u>Shift Date:</u></p><%=shift.shift_date%>
+    <p><u>Shift Time:</u></p><%=shift.shift_time%>
+    <p><u>Status:</u></p><%=shift.shift_status%>
   </li>
 <% end %>
 </ul>

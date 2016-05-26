@@ -13,17 +13,11 @@ get '/shifts' do
 end
 
 
-get '/shifts' do
-  #INDEX
-  @shifts = Shift.all()
-  erb ( :'/shifts/index' )
-end
-
 post '/shifts' do
   #CREATE
  @shift = Shift.new( params )
  @shift.save()
- redirect to(:'/shifts/index')
+ redirect to(:'shifts')
 end
 
 get '/shifts/:id' do
@@ -41,7 +35,12 @@ end
 
 put '/shifts/:id' do
   #UPDATE
-  puts params
  @shift = Shift.update( params )
  redirect to( "/shifts/#{params[:id]}" )
+end
+
+delete '/shifts/:id' do
+  #DELETE
+  Shift.destroy( params[:id] )
+  redirect to('/shifts')
 end

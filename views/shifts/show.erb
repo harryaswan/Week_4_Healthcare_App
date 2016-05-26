@@ -36,11 +36,16 @@
 <%= @shift.shift_time %><br>
 </li><br>
 
+<li>
+<p>Availability:</p>
+<%=@shift.shift_status %><br>
+</li><br>
 
 
 
 
-<a href="<%= @shift.id %>/edit">Edit shift</a>
+
+<a href="<%= @shift.id %>/edit">Edit/Volunteer for shift</a>
 
 
 <form action="/shifts/<%= @shift.id %>" method="post">

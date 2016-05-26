@@ -34,9 +34,16 @@ end
 
 put '/employees/:id' do
   #UPDATE
-  puts params
  @employee = Employee.update( params )
  redirect to( "/employees/#{params[:id]}" )
+end
+
+
+
+delete '/employees/:id' do
+  #DELETE
+  Employee.destroy( params[:id] )
+  redirect to('/employees')
 end
 
 
